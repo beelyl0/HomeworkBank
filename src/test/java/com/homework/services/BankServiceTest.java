@@ -91,10 +91,10 @@ public class BankServiceTest {
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             e.printStackTrace();
+            throw new RuntimeException(e);
         }
 
         executor.shutdown();
-
     }
 
 
