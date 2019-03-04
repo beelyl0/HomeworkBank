@@ -41,7 +41,7 @@ public final class AccountResource {
     @Path("/{accountId}/transfer")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public BankResponse<String> transferAccount(@PathParam("accountId") String accountId, TransferAmountRequest transferRequest) throws AccountFromNotFoundException {
+    public BankResponse<String> transferAccount(@PathParam("accountId") String accountId, TransferAmountRequest transferRequest) {
         bankService.transferAmount(accountId, transferRequest.getToAccountNumber(), transferRequest.getAmount());
         return new BankResponse<>(BankResponse.Status.SUCCESS, "Transfer was successful");
     }
