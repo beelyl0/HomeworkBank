@@ -73,7 +73,7 @@ public class BankServiceTest {
         String secondAccountNumber = bankService.createAccount(new BigDecimal(amount));
 
         for(int i = 0; i < threadCount; ++i) {
-            boolean isOdd = (i % 2 ==0);
+            boolean isOdd = (i % 2 != 0);
             String fromAccount = isOdd ? firstAccountNumber : secondAccountNumber;
             String toAccount = isOdd ? secondAccountNumber : firstAccountNumber;
             executor.submit(() -> {
